@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+doc = "Usage: \n\
+  getrepo <repo> <destination> \n\
+";
+
+// external "import"
+var docopt = require('docopt').docopt;
+var args = docopt(doc);  // looks like: { '<repo>': 'foo', '<destination>': 'bar' }
+
+// relative, local import
+var getrepo = require('../');
+
+// now calling the actual implementation, which we required locally
+getrepo(args['<repo>'], args['<destination>'], function(err, res) {
+  // we're inside the callback, handle potential error
+  if (err) {
+    console.error('Oops, there was an error', err);
+    return;
+  }
+  // or confirm successful download
+  console.log('downloaded %s to directory %s', args['<repo>'], args['<destination>']);
+});

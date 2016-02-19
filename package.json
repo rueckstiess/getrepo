@@ -1,0 +1,18 @@
+{
+  "name": "getrepo",
+  "version": "1.0.0",
+  "description": "download a github repo to a local directory.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": {
+    "getrepo": "./bin/getrepo"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "docopt": "^0.6.2",
+    "download-github-repo": "^0.1.3"
+  }
+}
